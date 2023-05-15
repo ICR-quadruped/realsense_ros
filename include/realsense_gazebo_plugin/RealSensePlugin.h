@@ -124,7 +124,7 @@ protected:
 
   std::map<std::string, CameraParams> cameraParamsMap_;
 
-  bool pointCloud_ = false;
+  bool pointCloud_ = true;
   std::string pointCloudTopic_;
   double pointCloudCutOff_, pointCloudCutOffMax_;
 

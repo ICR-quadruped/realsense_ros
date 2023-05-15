@@ -40,15 +40,21 @@ void GazeboRosRealsense::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
 
   this->itnode_ = new image_transport::ImageTransport(*this->rosnode_);
 
-  this->color_pub_ = this->itnode_->advertiseCamera(
-      cameraParamsMap_[COLOR_CAMERA_NAME].topic_name, 2);
+
+  // this->color_pub_ = this->itnode_->advertiseCamera(
+  //     cameraParamsMap_[COLOR_CAMERA_NAME].topic_name, 2);
+  
   this->ir1_pub_ = this->itnode_->advertiseCamera(
       cameraParamsMap_[IRED1_CAMERA_NAME].topic_name, 2);
+  
   this->ir2_pub_ = this->itnode_->advertiseCamera(
       cameraParamsMap_[IRED2_CAMERA_NAME].topic_name, 2);
-  this->depth_pub_ = this->itnode_->advertiseCamera(
-      cameraParamsMap_[DEPTH_CAMERA_NAME].topic_name, 2);
-  if (pointCloud_)
+  
+  // this->depth_pub_ = this->itnode_->advertiseCamera(
+  //     cameraParamsMap_[DEPTH_CAMERA_NAME].topic_name, 2);
+  
+  
+  if (pointCloud_)  //! 发布点云
   {
     this->pointcloud_pub_ =
         this->rosnode_->advertise<sensor_msgs::PointCloud2>(pointCloudTopic_, 2, false);
