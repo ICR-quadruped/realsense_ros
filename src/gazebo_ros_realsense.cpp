@@ -41,8 +41,8 @@ void GazeboRosRealsense::Load(physics::ModelPtr _model, sdf::ElementPtr _sdf) {
   this->itnode_ = new image_transport::ImageTransport(*this->rosnode_);
 
 
-  // this->color_pub_ = this->itnode_->advertiseCamera(
-  //     cameraParamsMap_[COLOR_CAMERA_NAME].topic_name, 2);
+  this->color_pub_ = this->itnode_->advertiseCamera(
+      cameraParamsMap_[COLOR_CAMERA_NAME].topic_name, 2);
   
   this->ir1_pub_ = this->itnode_->advertiseCamera(
       cameraParamsMap_[IRED1_CAMERA_NAME].topic_name, 2);
